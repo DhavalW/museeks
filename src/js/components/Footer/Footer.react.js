@@ -29,17 +29,17 @@ export default class Footer extends Component {
 
         const navButtons = (
             <ButtonGroup className='view-switcher'>
-                <LinkContainer to='/library' disabled={ this.props.refreshingLibrary }>
+                <LinkContainer to='/library'>
                     <Button className='view-link'>
                         <Icon name='align-justify' fixedWidth />
                     </Button>
                 </LinkContainer>
-                <LinkContainer to='/playlists' disabled={ this.props.refreshingLibrary }>
+                <LinkContainer to='/playlists'>
                     <Button className='view-link'>
                         <Icon name='star' fixedWidth />
                     </Button>
                 </LinkContainer>
-                <LinkContainer to='/settings' disabled={ this.props.refreshingLibrary }>
+                <LinkContainer to='/settings'>
                     <Button className='view-link'>
                         <Icon name='gear' fixedWidth />
                     </Button>

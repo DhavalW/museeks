@@ -98,6 +98,27 @@ export default (state = {}, payload) => {
             };
         }
 
+        case(AppConstants.APP_LIBRARY_REMOVE_TRACKS): {
+            const tracksIds = payload.tracksIds;
+            const removeTrack = (track) => !tracksIds.includes(track._id);
+            const tracks = {
+                library: {
+                    all: [...state.tracks.library.all].filter(removeTrack),
+                    sub: [...state.tracks.library.sub].filter(removeTrack)
+                },
+                playlist: {
+                    all: [...state.tracks.playlist.all].filter(removeTrack),
+                    sub: [...state.tracks.playlist.sub].filter(removeTrack)
+                }
+            };
+
+            return {
+                ...state,
+                tracks,
+                refreshProgress : payload.percentage
+            };
+        }
+
         case(AppConstants.APP_LIBRARY_SET_TRACKSCURSOR): {
             return {
                 ...state,
